@@ -9,13 +9,16 @@ html {
 }
 
 .page {
+  display: flex;
   inline-size: 1200px;
-  block-size: 100%;
+  height: 100vh;
   margin: auto;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  align-items: center;
+  justify-content: center;
 }
 
 h1,
@@ -36,3 +39,304 @@ ul,
 ol {
   list-style: none;
 }
+
+.content {
+  display: flex;
+  align-items: end;
+  gap: 30px;
+  width: 1140px;
+  margin: 133px 30px;
+}
+
+.result__video-container {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.result__video {
+  width: 711px;
+  height: 386px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-form__fieldset {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.search-form__fieldset-title {
+  font-family:'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.6px;
+  text-align: left;
+}
+
+/* строкой ниже я обращаюсь ко второму элементу родителя search-form__fieldset ("Время суток") с помощью псевдокласса nth-child 
+и задаю ему размеры*/
+.search-form__fieldset:nth-child(2)  {
+  width: 212px;
+  height: 49px;
+  margin-bottom: 5px;
+}
+
+.search-form__label {
+  display: flex;
+  width: fit-content;
+}
+
+/* создаю видимый фокус (обводку белого цвета в один пиксель по нажатию на tab) для "Утро", "День" и "Ночь" */
+.search-form__label:has(:focus-visible) {
+  border: 1px solid #ffffff;
+} 
+
+.search-form__label-text {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.6px;
+  text-align: left;
+  color: #FFFFFFB2;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.search-form__textfield {
+  display: flex;
+  cursor: pointer;
+  background-color: transparent;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  border-right: none;
+  width: 225px;
+  height: 27px;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.6px;
+  text-align: left;
+  color: #ffffff;
+}
+
+/* сбрасываю стандартный фокус (с синей рамкой) вокруг search-form__textfield (это строка поиска)   */
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 212px;
+}
+
+
+/* Создаю черные квадраты 19х19px с белой рамкой слева от "Утро", "День" и "Ночь" */
+.search-form__pseudo-checkbox {
+  display: flex;
+  background-color: transparent;
+  width: 19px;
+  height: 19px;
+  border: 1px solid #ffffff;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+/* создаём белый квадрат внутри белой рамки чтобы отметить состояние "checked" в чекбоксе "Время суток" */
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
+  display:flex;
+  width: 15px;
+  height: 15px;
+  background-color: #ffffff;
+  content: "";
+}
+
+/* ниже строчку использовал по рекомендации старшего студента из "Пачки" для организации подчеркивания при наведении на
+"Утро", "День" и "Ночь" */
+.search-form__pseudo-checkbox:hover + .search-form__label-text,
+.search-form__label-text:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* создаю подчёркивание при наведении курсора на кнопку "Показать ещё" */
+.more-button:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* при наведении на кнопку появляется курсор */
+.button{
+  cursor: pointer;
+}
+
+/* закрашиваю кнопки серым (#545050) цветом при нажатии на них  */
+.button:active {
+  background: #545050;
+}
+
+.search-form__submit-button {
+  width: 194px;  
+  height: 34px;
+  align-self: end;
+  background-color: transparent;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.6px;
+  text-align: center;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+/* создаю подчёркивание при наведении курсора на кнопку "Найти" */
+.search-form__submit-button:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.content__details {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 70.5px;
+  text-align: left;
+  text-transform: uppercase;
+  color: #ffffff;
+  width: 260px;
+  height: 210px;
+  margin-top: 5px;
+}
+
+.content__accent {
+  color: #545050;
+
+}
+
+.content__list {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 298px;
+  overflow-y: auto;
+  align-items: start;
+}
+
+.content__list-item {
+  width: 394px;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+/* убираю отступ снизу у последнего дочернего элемента родителя content__list-item */
+.content__list-item:last-child {
+  margin-bottom: 0;
+}
+
+.content__card-link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* убираю стандартный focus вокруг карточек с видео */
+.content__card-link:focus {
+  outline: none;
+}
+
+/* добавляю focus карточкам с видео */
+.content__card-link:focus-visible {
+  border: 1px solid #ffffff;
+}
+
+.content__video-card {
+  display: flex;
+  align-items: start;
+}
+
+.content__video-card-description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  /* рассчитал ширину контейнера: 394px - 194px = 200px (ширина content__video-card-description-container)  */
+  width: 200px;
+}
+
+/* создаю подчёркивание заголовка и текста при наведении курсора на видео */
+.content__video-card:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+/* при нажатии на видео меняю цвет фона на #545050 */
+.content__video-card:active {
+  background: #545050;
+}
+
+.content__video-card-title {
+  text-transform: uppercase;
+}
+
+
+.content__video-card-description {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 16.2px; 
+  text-align: left;
+}
+
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: cover;
+}
+
+.more-button {
+  width: 399px;
+  height: 34px;
+  gap: 10px;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.6px;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* меняю стандартный фокус кнопки на фокус с белой рамкой с расстоянием в 2px от границ самой кнопки */
+.button:focus {
+  outline: 1px solid #ffffff;
+  outline-offset: 2px;
+} 
