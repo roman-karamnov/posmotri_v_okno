@@ -237,7 +237,6 @@ ol {
 
 .content__accent {
   color: #545050;
-
 }
 
 .content__list {
@@ -295,12 +294,6 @@ ol {
   width: 200px;
 }
 
-/* создаю подчёркивание заголовка и текста при наведении курсора на видео */
-.content__video-card:hover {
-  text-decoration: underline;
-  text-underline-offset: 5px;
-}
-
 .content__video-card-title {
   text-transform: uppercase;
   font-family: 'Oswald', sans-serif;
@@ -344,4 +337,9 @@ ol {
 
 .content__card-link_current {
   background-color: #545050;
+}
+
+/* создаю подчёркивание заголовка и текста при наведении курсора на карточку видео */
+.content__card-link:hover {
+  text-decoration: underline;
 }
